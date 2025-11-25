@@ -337,9 +337,9 @@ body {
 }
 
 .responsive-video {
-  width: 100%;
-  height: auto;
-  display: block;
+  width: 1200px;
+  height: 600px;
+  place-items: center;
 }
 
 .video-caption {
