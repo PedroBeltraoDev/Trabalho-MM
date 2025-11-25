@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AudioLearn - Fundamentos do Áudio Digital</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Tela de Carregamento com Animação -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="sound-wave">
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+            <div class="wave-bar"></div>
+        </div>
+        <h1 class="loading-title">AudioLearn</h1>
+        <p class="loading-subtitle">Carregando experiência interativa...</p>
+    </div>
+
+    <!-- Menu Lateral -->
+    <nav id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h2>AudioLearn</h2>
+            <button id="close-sidebar" class="close-btn">&times;</button>
+        </div>
+        <ul class="menu-list">
+            <li><a href="#" data-section="intro" class="menu-item active">🏠 Introdução</a></li>
+            <li><a href="#" data-section="sampling" class="menu-item">📊 Amostragem</a></li>
+            <li><a href="#" data-section="formats" class="menu-item">💾 Formatos de Áudio</a></li>
+            <li><a href="#" data-section="quality" class="menu-item">⭐ Qualidade</a></li>
+            <li><a href="#" data-section="applications" class="menu-item">🎵 Aplicações</a></li>
+            <li><a href="#" data-section="quiz" class="menu-item">🎯 Quiz Final</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <p>Equipe: André Marcilio, Pedro Antônio, Evandro Albuquerer, Matheus Henrique, Gabriel Barreto</p>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <div class="main-container">
+        <header class="top-header">
+            <button id="menu-toggle" class="menu-toggle">☰</button>
+            <h1 id="page-title">Fundamentos do Áudio Digital</h1>
+            <div class="progress-indicator">
+                <span id="progress-text">Módulo 1/6</span>
+            </div>
+        </header>
+
+        <main class="content-area">
+            <!-- Seção: Introdução -->
+            <section id="intro" class="content-section active">
+                <div class="section-header">
+                    <h2>🎧 Bem-vindo ao AudioLearn</h2>
+                    <p class="subtitle">Sua jornada pelo mundo do áudio digital começa aqui!</p>
+                </div>
+
+                <div class="content-card">
+                    <h3>O que é Áudio Digital?</h3>
+                    <div class="media-container">
+                        <img src="img/imagem1.avif" alt="Visualização de Forma de Onda Digital" class="imgone">
+                    </div>
+                    <p>O áudio digital é a representação de sons através de números binários. Ao contrário do áudio analógico, que usa variações contínuas de voltagem, o áudio digital captura "fotografias" do som em intervalos regulares.</p>
+                    
+                    <div class="vector-illustration">
+                        <svg width="100%" height="200" viewBox="0 0 800 200">
+                            <text x="20" y="30" class="svg-title">Onda Analógica vs Digital</text>
+                            <!-- Onda Analógica -->
+                            <path d="M 50 100 Q 100 50 150 100 T 250 100 T 350 100" stroke="#00d4ff" stroke-width="3" fill="none"/>
+                            <text x="150" y="180" class="svg-label">Analógico (Contínuo)</text>
+                            
+                            <!-- Onda Digital (Escada) -->
+                            <path d="M 450 100 L 470 100 L 470 80 L 490 80 L 490 120 L 510 120 L 510 70 L 530 70 L 530 110 L 550 110 L 550 90 L 570 90 L 570 100 L 590 100 L 590 100 L 610 100 L 610 95 L 630 95 L 630 105 L 650 105 L 650 100 L 670 100" stroke="#ff6b9d" stroke-width="3" fill="none"/>
+                            <circle cx="470" cy="80" r="4" fill="#ff6b9d"/>
+                            <circle cx="490" cy="120" r="4" fill="#ff6b9d"/>
+                            <circle cx="510" cy="70" r="4" fill="#ff6b9d"/>
+                            <circle cx="530" cy="110" r="4" fill="#ff6b9d"/>
+                            <circle cx="550" cy="90" r="4" fill="#ff6b9d"/>
+                            <circle cx="570" cy="100" r="4" fill="#ff6b9d"/>
+                            <circle cx="590" cy="100" r="4" fill="#ff6b9d"/>
+                            <circle cx="610" cy="95" r="4" fill="#ff6b9d"/>
+                            <circle cx="630" cy="105" r="4" fill="#ff6b9d"/>
+                            <text x="520" y="180" class="svg-label">Digital (Amostras)</text>
+                        </svg>
+                    </div>
+
+                    <div class="audio-player-section">
+                        <h4>🔊 Ouça a Diferença</h4>
+                        <p>Exemplo de áudio digitalizado em diferentes qualidades:</p>
+                        <audio controls class="audio-player">
+                            <source src="/placeholder.mp3?query=audio+comparison+high+quality" type="audio/mpeg">
+                            Seu navegador não suporta o elemento de áudio.
+                        </audio>
+                    </div>
+
+                    <div class="info-box">
+                        <h4>💡 Conceitos-Chave</h4>
+                        <ul>
+                            <li><strong>Amostragem:</strong> Captura de valores do sinal em intervalos regulares</li>
+                            <li><strong>Quantização:</strong> Conversão de valores contínuos em discretos</li>
+                            <li><strong>Taxa de Bits:</strong> Quantidade de dados por segundo (bitrate)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button class="btn-primary" onclick="navigateToSection('sampling')">Próximo: Amostragem →</button>
+                </div>
+            </section>
+
+            <!-- Seção: Amostragem -->
+            <section id="sampling" class="content-section">
+                <div class="section-header">
+                    <h2>📊 Amostragem e Digitalização</h2>
+                    <p class="subtitle">Como transformamos ondas sonoras em números</p>
+                </div>
+
+                <div class="content-card">
+                    <h3>O Processo de Amostragem</h3>
+                    <div class="media-container">
+                        <img src="/img/imagem2.avif" alt="Diagrama do Processo de Amostragem" class="imgtwo">
+                    </div>
+
+                    <div class="vector-diagram">
+                        <svg width="100%" height="300" viewBox="0 0 800 300">
+                            <text x="20" y="30" class="svg-title">Taxa de Amostragem</text>
+                            
+                            <!-- Onda original -->
+                            <path d="M 50 150 Q 100 100 150 150 T 250 150 T 350 150 T 450 150 T 550 150 T 650 150" stroke="#00d4ff" stroke-width="2" fill="none" opacity="0.5"/>
+                            
+                            <!-- Amostras - Alta taxa -->
+                            <line x1="50" y1="150" x2="50" y2="260" stroke="#4ade80" stroke-width="1" stroke-dasharray="3,3"/>
+                            <circle cx="50" cy="150" r="5" fill="#4ade80"/>
+                            <line x1="90" y1="125" x2="90" y2="260" stroke="#4ade80" stroke-width="1" stroke-dasharray="3,3"/>
+                            <circle cx="90" cy="125" r="5" fill="#4ade80"/>
+                            <line x1="130" y1="140" x2="130" y2="260" stroke="#4ade80" stroke-width="1" stroke-dasharray="3,3"/>
+                            <circle cx="130" cy="140" r="5" fill="#4ade80"/>
+                            <line x1="170" y1="165" x2="170" y2="260" stroke="#4ade80" stroke-width="1" stroke-dasharray="3,3"/>
+                            <circle cx="170" cy="165" r="5" fill="#4ade80"/>
+                            <line x1="210" y1="160" x2="210" y2="260" stroke="#4ade80" stroke-width="1" stroke-dasharray="3,3"/>
+                            <circle cx="210" cy="160" r="5" fill="#4ade80"/>
+                            <line x1="250" y1="150" x2="250" y2="260" stroke="#4ade80" stroke-width="1" stroke-dasharray="3,3"/>
+                            <circle cx="250" cy="150" r="5" fill="#4ade80"/>
+                            
+                            <text x="50" y="280" class="svg-label" fill="#4ade80">Alta Taxa (44.1 kHz)</text>
+                            
+                            <!-- Amostras - Baixa taxa -->
+                            <line x1="450" y1="150" x2="450" y2="260" stroke="#ff6b9d" stroke-width="1" stroke-dasharray="3,3"/>
+                            <circle cx="450" cy="150" r="5" fill="#ff6b9d"/>
+                            <line x1="550" y1="140" x2="550" y2="260" stroke="#ff6b9d" stroke-width="1" stroke-dasharray="3,3"/>
+                            <circle cx="550" cy="140" r="5" fill="#ff6b9d"/>
+                            <line x1="650" y1="150" x2="650" y2="260" stroke="#ff6b9d" stroke-width="1" stroke-dasharray="3,3"/>
+                            <circle cx="650" cy="150" r="5" fill="#ff6b9d"/>
+                            
+                            <text x="480" y="280" class="svg-label" fill="#ff6b9d">Baixa Taxa (8 kHz)</text>
+                        </svg>
+                    </div>
+
+                    <div class="comparison-grid">
+                        <div class="comparison-item">
+                            <h4>22.050 Hz</h4>
+                            <p>Qualidade de rádio AM</p>
+                            <audio controls class="audio-player-mini">
+                                <source src="audio/22.050hz-amostragem.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                        <div class="comparison-item">
+                            <h4>44.100 Hz</h4>
+                            <p>Qualidade de CD (padrão)</p>
+                            <audio controls class="audio-player-mini">
+                                <source src="audio/44.100hz-amostragem.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                        <div class="comparison-item">
+                            <h4>96.000 Hz</h4>
+                            <p>Alta resolução</p>
+                            <audio controls class="audio-player-mini">
+                                <source src="audio/96.000hz-amostragem.wav" type="audio/wav">
+                            </audio>
+                        </div>
+                    </div>
+
+                    <div class="info-box warning">
+                        <h4>⚠️ Teorema de Nyquist-Shannon</h4>
+                        <p>Para capturar adequadamente um sinal, a taxa de amostragem deve ser pelo menos <strong>o dobro</strong> da frequência máxima do sinal.</p>
+                        <p class="formula">$$f_{amostragem} ≥ 2 × f_{máxima}$$</p>
+                    </div>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button class="btn-secondary" onclick="navigateToSection('intro')">← Anterior</button>
+                    <button class="btn-primary" onclick="navigateToSection('formats')">Próximo: Formatos →</button>
+                </div>
+            </section>
+
+            <!-- Seção: Formatos -->
+            <section id="formats" class="content-section">
+                <div class="section-header">
+                    <h2>💾 Formatos de Áudio Digital</h2>
+                    <p class="subtitle">Entendendo os principais formatos e suas características</p>
+                </div>
+
+                <div class="content-card">
+                    <h3>Tipos de Formatos</h3>
+                    
+                    <div class="video-container">
+                        <video controls class="responsive-video" poster="/placeholder.svg?height=400&width=700">
+                            <source src="/placeholder.mp4?query=audio+formats+tutorial+video" type="video/mp4">
+                            Seu navegador não suporta vídeos HTML5.
+                        </video>
+                        <p class="video-caption">Vídeo: Comparação entre formatos de áudio</p>
+                    </div>
+
+                    <div class="formats-grid">
+                        <div class="format-card">
+                            <div class="format-icon">📄</div>
+                            <h4>WAV / AIFF</h4>
+                            <span class="badge badge-lossless">Sem Perda</span>
+                            <ul>
+                                <li>Sem compressão</li>
+                                <li>Qualidade máxima</li>
+                                <li>Arquivos grandes</li>
+                                <li>Uso: Produção profissional</li>
+                            </ul>
+                        </div>
+
+                        <div class="format-card">
+                            <div class="format-icon">🎵</div>
+                            <h4>MP3</h4>
+                            <span class="badge badge-lossy">Com Perda</span>
+                            <ul>
+                                <li>Compressão eficiente</li>
+                                <li>Perda de dados</li>
+                                <li>Arquivos pequenos</li>
+                                <li>Uso: Distribuição, streaming</li>
+                            </ul>
+                        </div>
+
+                        <div class="format-card">
+                            <div class="format-icon">💎</div>
+                            <h4>FLAC</h4>
+                            <span class="badge badge-lossless">Sem Perda</span>
+                            <ul>
+                                <li>Compressão sem perda</li>
+                                <li>50-70% do tamanho WAV</li>
+                                <li>Qualidade preservada</li>
+                                <li>Uso: Arquivamento, audiófilos</li>
+                            </ul>
+                        </div>
+
+                        <div class="format-card">
+                            <div class="format-icon">🎹</div>
+                            <h4>MIDI</h4>
+                            <span class="badge badge-special">Instruções</span>
+                            <ul>
+                                <li>Não é áudio, são comandos</li>
+                                <li>Arquivos minúsculos</li>
+                                <li>Editável nota por nota</li>
+                                <li>Uso: Produção musical</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="midi-demo">
+                        <h4>🎹 Demonstração MIDI</h4>
+                        <p>Música sintetizada a partir de instruções MIDI:</p>
+                        <audio controls class="audio-player">
+                            <source src="/placeholder.mp3?query=midi+synthesized+music+example" type="audio/mpeg">
+                        </audio>
+                        <p class="midi-info">Esta música foi gerada a partir de um arquivo MIDI de apenas 15KB, mas reproduz uma melodia completa!</p>
+                    </div>
+
+                    <div class="comparison-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Formato</th>
+                                    <th>Qualidade</th>
+                                    <th>Tamanho (3 min)</th>
+                                    <th>Aplicação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>WAV</td>
+                                    <td>⭐⭐⭐⭐⭐</td>
+                                    <td>~30 MB</td>
+                                    <td>Edição profissional</td>
+                                </tr>
+                                <tr>
+                                    <td>FLAC</td>
+                                    <td>⭐⭐⭐⭐⭐</td>
+                                    <td>~18 MB</td>
+                                    <td>Arquivamento</td>
+                                </tr>
+                                <tr>
+                                    <td>MP3 (320kbps)</td>
+                                    <td>⭐⭐⭐⭐</td>
+                                    <td>~7 MB</td>
+                                    <td>Distribuição</td>
+                                </tr>
+                                <tr>
+                                    <td>MP3 (128kbps)</td>
+                                    <td>⭐⭐⭐</td>
+                                    <td>~3 MB</td>
+                                    <td>Streaming</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button class="btn-secondary" onclick="navigateToSection('sampling')">← Anterior</button>
+                    <button class="btn-primary" onclick="navigateToSection('quality')">Próximo: Qualidade →</button>
+                </div>
+            </section>
+
+            <!-- Seção: Qualidade -->
+            <section id="quality" class="content-section">
+                <div class="section-header">
+                    <h2>⭐ Qualidade do Áudio Digital</h2>
+                    <p class="subtitle">Fatores que determinam a qualidade final</p>
+                </div>
+
+                <div class="content-card">
+                    <h3>Profundidade de Bits (Bit Depth)</h3>
+                    
+                    <div class="media-container">
+                        <img src="img/imagem3.png" alt="Comparação de Profundidade de Bits" class="imgthree">
+                    </div>
+
+                    <div class="bit-depth-visual">
+                        <svg width="100%" height="250" viewBox="0 0 800 250">
+                            <text x="20" y="30" class="svg-title">Resolução de Amplitude</text>
+                            
+                            <!-- 8 bits - poucos níveis -->
+                            <text x="50" y="60" class="svg-label">8 bits (256 níveis)</text>
+                            <rect x="50" y="70" width="150" height="20" fill="#ff6b9d" opacity="0.2"/>
+                            <rect x="50" y="95" width="150" height="20" fill="#ff6b9d" opacity="0.4"/>
+                            <rect x="50" y="120" width="150" height="20" fill="#ff6b9d" opacity="0.6"/>
+                            <rect x="50" y="145" width="150" height="20" fill="#ff6b9d" opacity="0.8"/>
+                            <rect x="50" y="170" width="150" height="20" fill="#ff6b9d"/>
+                            
+                            <!-- 16 bits - muitos níveis -->
+                            <text x="300" y="60" class="svg-label">16 bits (65.536 níveis)</text>
+                            <rect x="300" y="70" width="150" height="4" fill="#4ade80"/>
+                            <rect x="300" y="76" width="150" height="4" fill="#4ade80" opacity="0.95"/>
+                            <rect x="300" y="82" width="150" height="4" fill="#4ade80" opacity="0.9"/>
+                            <rect x="300" y="88" width="150" height="4" fill="#4ade80" opacity="0.85"/>
+                            <rect x="300" y="94" width="150" height="4" fill="#4ade80" opacity="0.8"/>
+                            <rect x="300" y="100" width="150" height="4" fill="#4ade80" opacity="0.75"/>
+                            <rect x="300" y="106" width="150" height="4" fill="#4ade80" opacity="0.7"/>
+                            <rect x="300" y="112" width="150" height="4" fill="#4ade80" opacity="0.65"/>
+                            <rect x="300" y="118" width="150" height="4" fill="#4ade80" opacity="0.6"/>
+                            <rect x="300" y="124" width="150" height="4" fill="#4ade80" opacity="0.55"/>
+                            <rect x="300" y="130" width="150" height="4" fill="#4ade80" opacity="0.5"/>
+                            
+                            <!-- 24 bits - resolução máxima -->
+                            <text x="550" y="60" class="svg-label">24 bits (16.7 milhões)</text>
+                            <rect x="550" y="70" width="150" height="2" fill="#00d4ff"/>
+                            <rect x="550" y="73" width="150" height="2" fill="#00d4ff" opacity="0.98"/>
+                            <rect x="550" y="76" width="150" height="2" fill="#00d4ff" opacity="0.96"/>
+                            <rect x="550" y="79" width="150" height="2" fill="#00d4ff" opacity="0.94"/>
+                            <rect x="550" y="82" width="150" height="2" fill="#00d4ff" opacity="0.92"/>
+                            <text x="565" y="100" class="svg-label" font-size="12">...</text>
+                            <text x="550" y="120" class="svg-label" font-size="12" fill="#4ade80">Resolução quase contínua</text>
+                        </svg>
+                    </div>
+
+                    <div class="quality-factors">
+                        <h4>Fatores de Qualidade</h4>
+                        <div class="factors-grid">
+                            <div class="factor-item">
+                                <span class="factor-number">1</span>
+                                <h5>Taxa de Amostragem</h5>
+                                <p>Determina a frequência máxima capturável</p>
+                            </div>
+                            <div class="factor-item">
+                                <span class="factor-number">2</span>
+                                <h5>Profundidade de Bits</h5>
+                                <p>Define a faixa dinâmica e ruído</p>
+                            </div>
+                            <div class="factor-item">
+                                <span class="factor-number">3</span>
+                                <h5>Taxa de Bits (Bitrate)</h5>
+                                <p>Quantidade de dados por segundo</p>
+                            </div>
+                            <div class="factor-item">
+                                <span class="factor-number">4</span>
+                                <h5>Algoritmo de Compressão</h5>
+                                <p>Método de redução de tamanho</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-box success">
+                        <h4>✅ Configurações Recomendadas</h4>
+                        <ul>
+                            <li><strong>Produção Musical:</strong> 48 kHz / 24 bits / WAV</li>
+                            <li><strong>Masterização:</strong> 96 kHz / 24 bits / WAV</li>
+                            <li><strong>Distribuição:</strong> 44.1 kHz / 16 bits / FLAC ou MP3 320kbps</li>
+                            <li><strong>Podcasts:</strong> 44.1 kHz / 16 bits / MP3 128-192kbps</li>
+                        </ul>
+                    </div>
+
+                    <div class="interactive-demo">
+                        <h4>🎚️ Demonstração Interativa</h4>
+                        <p>Ouça o mesmo áudio em diferentes qualidades:</p>
+                        <div class="quality-options">
+                            <button class="quality-btn" onclick="playQualityDemo('low')">8 bits / 11 kHz</button>
+                            <button class="quality-btn" onclick="playQualityDemo('medium')">16 bits / 22 kHz</button>
+                            <button class="quality-btn" onclick="playQualityDemo('high')">16 bits / 44.1 kHz</button>
+                            <button class="quality-btn" onclick="playQualityDemo('ultra')">24 bits / 96 kHz</button>
+                        </div>
+                        <audio id="quality-demo-player" class="audio-player">
+                            <source id="quality-demo-source" src="" type="audio/mpeg">
+                        </audio>
+                    </div>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button class="btn-secondary" onclick="navigateToSection('formats')">← Anterior</button>
+                    <button class="btn-primary" onclick="navigateToSection('applications')">Próximo: Aplicações →</button>
+                </div>
+            </section>
+
+            <!-- Seção: Aplicações -->
+            <section id="applications" class="content-section">
+                <div class="section-header">
+                    <h2>🎵 Aplicações do Áudio Digital</h2>
+                    <p class="subtitle">Como o áudio digital é usado no mundo real</p>
+                </div>
+
+                <div class="content-card">
+                    <h3>Áreas de Aplicação</h3>
+                    
+                    <div class="applications-grid">
+                        <div class="app-card">
+                            <div class="app-icon">🎬</div>
+                            <h4>Produção Audiovisual</h4>
+                            <img src="img/studio.jpg" alt="Estúdio de Produção" class="studioo">
+                            <p>Cinema, TV, streaming - sincronização com vídeo, edição multipista, efeitos sonoros.</p>
+                        </div>
+
+                        <div class="app-card">
+                            <div class="app-icon">🎮</div>
+                            <h4>Games</h4>
+                            <img src="img/game.jpg" alt="Áudio em Games" class="studioo">
+                            <p>Áudio interativo, síntese em tempo real, espacialização 3D, compressão adaptativa.</p>
+                        </div>
+
+                        <div class="app-card">
+                            <div class="app-icon">🎙️</div>
+                            <h4>Podcast</h4>
+                            <img src="img/podcasts.webp" alt="Setup de Podcast" class="studioo  ">
+                            <p>Gravação, edição, remoção de ruído, compressão para distribuição online.</p>
+                        </div>
+
+                        <div class="app-card">
+                            <div class="app-icon">🎸</div>
+                            <h4>Produção Musical</h4>
+                            <img src="img/producoesmusicais.png" alt="Produção Musical" class="studioo">
+                            <p>DAWs, MIDI, plugins, masterização, distribuição digital em plataformas de streaming.</p>
+                        </div>
+
+                        <div class="app-card">
+                            <div class="app-icon">📱</div>
+                            <h4>Telecomunicações</h4>
+                            <img src="img/telecomunicacao.jpg" alt="Telecomunicações" class="studioo">
+                            <p>VoIP, videoconferência, codecs de baixa latência, supressão de eco.</p>
+                        </div>
+
+                        <div class="app-card">
+                            <div class="app-icon">🔬</div>
+                            <h4>Análise Científica</h4>
+                            <img src="img/cientifica.jpg" alt="Análise Científica" class="studioo">
+                            <p>Análise espectral, ultrassom, processamento de sinais, reconhecimento de padrões.</p>
+                        </div>
+                    </div>
+
+                    <div class="case-study">
+                        <h4>📊 Caso de Estudo: Streaming Musical</h4>
+                        <div class="video-container">
+                            <video controls class="responsive-video" poster="/placeholder.svg?height=350&width=650">
+                                <source src="/placeholder.mp4?query=music+streaming+technology+explained" type="video/mp4">
+                            </video>
+                        </div>
+                        <p>Plataformas como Spotify usam formatos como OGG Vorbis e AAC para balancear qualidade e consumo de dados. A taxa de bits se adapta automaticamente à velocidade da conexão.</p>
+                    </div>
+
+                    <div class="tools-section">
+                        <h4>🛠️ Ferramentas Profissionais</h4>
+                        <div class="tools-list">
+                            <div class="tool-item">
+                                <strong>DAWs:</strong> Ableton Live, Pro Tools, Logic Pro, FL Studio, Reaper
+                            </div>
+                            <div class="tool-item">
+                                <strong>Editores:</strong> Audacity, Adobe Audition, WaveLab
+                            </div>
+                            <div class="tool-item">
+                                <strong>Codecs:</strong> LAME (MP3), FLAC, Opus, AAC
+                            </div>
+                            <div class="tool-item">
+                                <strong>Análise:</strong> iZotope RX, Sonic Visualiser, Spek
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button class="btn-secondary" onclick="navigateToSection('quality')">← Anterior</button>
+                    <button class="btn-primary" onclick="navigateToSection('quiz')">Fazer o Quiz! 🎯</button>
+                </div>
+            </section>
+
+            <!-- Seção: Quiz -->
+            <section id="quiz" class="content-section">
+                <div class="section-header">
+                    <h2>🎯 Quiz Final</h2>
+                    <p class="subtitle">Teste seus conhecimentos sobre áudio digital!</p>
+                </div>
+
+                <div class="content-card">
+                    <div id="quiz-intro" class="quiz-intro">
+                        <div class="quiz-info-box">
+                            <h3>Instruções do Quiz</h3>
+                            <ul>
+                                <li>✓ O quiz contém 5 perguntas selecionadas aleatoriamente</li>
+                                <li>✓ Escolha a alternativa que considera correta</li>
+                                <li>✓ Você receberá feedback imediato após cada resposta</li>
+                                <li>✓ Ao final, verá sua pontuação total</li>
+                            </ul>
+                            <button class="btn-start-quiz" onclick="startQuiz()">Iniciar Quiz</button>
+                        </div>
+                    </div>
+
+                    <div id="quiz-container" class="quiz-container" style="display: none;">
+                        <div class="quiz-progress">
+                            <div class="progress-bar">
+                                <div id="progress-fill" class="progress-fill"></div>
+                            </div>
+                            <p class="progress-text">Pergunta <span id="current-question">1</span> de 5</p>
+                        </div>
+
+                        <div id="question-container" class="question-container">
+                            <!-- Perguntas serão inseridas aqui dinamicamente -->
+                        </div>
+
+                        <div id="quiz-result" class="quiz-result" style="display: none;">
+                            <div class="result-animation">
+                                <div class="result-circle">
+                                    <span id="result-percentage">0%</span>
+                                </div>
+                            </div>
+                            <h3 id="result-title">Parabéns!</h3>
+                            <p id="result-message">Você completou o quiz.</p>
+                            <div class="result-details">
+                                <p>Acertos: <strong id="correct-answers">0</strong> de 5</p>
+                                <p>Porcentagem: <strong id="final-percentage">0%</strong></p>
+                            </div>
+                            <div class="result-actions">
+                                <button class="btn-primary" onclick="restartQuiz()">Fazer Novamente</button>
+                                <button class="btn-secondary" onclick="navigateToSection('intro')">Voltar ao Início</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="main-footer">
+            <p>&copy; 2025 AudioLearn - Sistema Educacional Interativo</p>
+            <p>Desenvolvido por: André Marcilio, Pedro Antônio, Evandro Albuquerer, Matheus Henrique, Gabriel Barreto</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
