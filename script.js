@@ -413,3 +413,57 @@ function restartQuiz() {
   // Inicia novo quiz
   startQuiz()
 }
+
+function playQualityDemo(quality) {
+    const audioPlayer = document.getElementById('quality-demo-player');
+    const source = document.getElementById('quality-demo-source');
+    const currentQuality = audioPlayer.getAttribute('data-current-quality');
+
+    // Se o mesmo botão foi clicado
+    if (currentQuality === quality) {
+        if (!audioPlayer.paused) {
+            // Está tocando → parar e resetar
+            audioPlayer.pause();
+            audioPlayer.currentTime = 0;
+        } else {
+            // Está parado → tocar do início
+            audioPlayer.currentTime = 0;
+            audioPlayer.play().catch(e => console.log("Reprodução bloqueada:", e));
+        }
+        return;
+    }
+
+    // Se for uma qualidade diferente:
+    // 1. Parar a atual
+    audioPlayer.pause();
+    audioPlayer.currentTime = 0;
+
+    // 2. Definir novo caminho
+    let audioPath = '';
+    switch(quality) {
+        case 'low':
+            audioPath = 'audio/8bits-11Hz.wav';
+            break;
+        case 'medium':
+            audioPath = 'audio/16bits-22Hz.wav';
+            break;
+        case 'high':
+            audioPath = 'audio/16bits-44Hz.wav';
+            break;
+        case 'ultra':
+            audioPath = 'audio/24bits-96Hz.wav';
+            break;
+        default:
+            audioPath = 'audio/8bits-11Hz.wav';
+    }
+
+    // 3. Atualizar a fonte
+    source.src = audioPath;
+    audioPlayer.load();
+
+    // 4. Marcar a nova qualidade como ativa
+    audioPlayer.setAttribute('data-current-quality', quality);
+
+    // 5. Tocar
+    audioPlayer.play().catch(e => console.log("Reprodução bloqueada:", e));
+}
