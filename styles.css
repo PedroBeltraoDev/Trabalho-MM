@@ -242,8 +242,9 @@ body {
   display: block;
 }
 .imgone{
-  width: 600px;
-  height: 250px;
+    align-content: center;
+    height: 400px;
+    width: 800px;
 }
 .imgtwo{
   width: 800px;
