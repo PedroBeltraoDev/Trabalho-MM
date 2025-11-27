@@ -241,18 +241,17 @@ body {
 .content-section.active {
   display: block;
 }
-.imgone{
-    align-content: center;
-    height: 400px;
-    width: 800px;
+.imgone, .imgtwo, .imgthree{
+   width: 700px;
+  height: 400px;
+  margin: 17px auto; /* CENTRALIZA horizontalmente */
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.imgtwo{
-  width: 800px;
-}
-.imgthree{
-  width: 600px;
-  height: 300px;
-}
+
 .studioo{
   width: 300px;
 }
@@ -331,10 +330,15 @@ body {
 }
 
 .video-container {
-  margin: 30px 0;
+  width: 900px;
+  height: 500px;
+  margin: 30px auto; /* CENTRALIZA horizontalmente */
   border-radius: 15px;
   overflow: hidden;
   box-shadow: var(--shadow-lg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .responsive-video {
@@ -356,19 +360,19 @@ body {
 .vector-diagram,
 .bit-depth-visual {
   margin: 30px 0;
-  padding: 20px;
+  padding: 100px;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 15px;
 }
 
 .svg-title {
-  font-size: 18px;
+  font-size: 20px;
   fill: var(--primary-color);
   font-weight: bold;
 }
 
 .svg-label {
-  font-size: 14px;
+  font-size: 20px;
   fill: var(--text-secondary);
   text-anchor: middle;
 }
