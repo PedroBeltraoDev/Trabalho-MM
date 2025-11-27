@@ -360,19 +360,19 @@ body {
 .vector-diagram,
 .bit-depth-visual {
   margin: 30px 0;
-  padding: 100px;
+  padding: 20px;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 15px;
 }
 
 .svg-title {
-  font-size: 20px;
+  font-size: 18px;
   fill: var(--primary-color);
   font-weight: bold;
 }
 
 .svg-label {
-  font-size: 20px;
+  font-size: 19px;
   fill: var(--text-secondary);
   text-anchor: middle;
 }
@@ -720,6 +720,15 @@ tbody tr:hover {
   background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(255, 107, 157, 0.05));
   border-radius: 15px;
   border: 2px solid var(--primary-color);
+}
+
+.case-study video {
+    display: block;
+    margin: 20px auto; /* CENTRALIZA */
+    width: 80%;      /* TAMANHO BOM */
+    max-width: 900px; /* LIMITE IDEAL */
+    border-radius: 15px;
+    box-shadow: var(--shadow-lg);
 }
 
 /* Tools Section */
